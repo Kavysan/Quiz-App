@@ -1,0 +1,22 @@
+*{
+  font-family: system-ui;
+}
+
+
+body {
+  height: 100vh;
+  background: #F6F7FB;
+  /* background-position: center center; */
+  margin: 0; /* Remove default margin to ensure full height */
+}
+
+.container .grid{
+  margin-top: 3em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+
+
+
+
