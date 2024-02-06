@@ -1,0 +1,104 @@
+.dashboard{
+    margin-top: 10%;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.profile-box{
+    background: #F6F7FB!important;
+    position: relative;
+    height: fit-content;
+    border-radius: 12px;
+    padding: 20px 30px 30px;
+    box-shadow: 0 0px 10px rgba(12, 30, 165, 0.8);
+    overflow: hidden;
+    margin-top: 5%;
+    width: fit-content;
+    
+}
+
+h5{
+    color:rgb(92, 85, 85)
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+  }
+  
+  .modal-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dcdcdc;
+    padding: 15px;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #495057;
+  }
+  
+  .modal-body {
+    padding: 20px;
+  }
+  
+
+  .avatar-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .avatar-image {
+    width: 100px;
+    height: 100px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  .avatar-image:hover {
+    border-color: #007bff;
+  }
+  
+.change-avatar{
+    justify-self: flex-end;
+    padding-left:40px;
+    padding-right:40px;
+    margin-bottom: 5%;
+    color: #2357be;
+    border-radius: 5px;
+    border: 1px solid #2357be;
+    background: #F6F7FB!important;
+}
+.up-del{
+  justify-self: flex-end;
+  padding-left:40px;
+  padding-right:40px;
+  margin-bottom: 5%;
+  border-radius: 5px;
+  color: #2357be;
+  border: 1px solid #2357BE;
+  background: #F6F7FB!important;
+}
+
+.change-avatar:hover{
+    background: #2357be!important;
+    color: white;
+}
+
+.card-body{
+  margin-top: 10%;
+}
+
+.up-del:hover{
+  background: #2357be!important;
+  color: white;
+}

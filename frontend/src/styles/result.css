@@ -7,7 +7,6 @@
     border: 5px solid #c9d7f1!important;
     padding: 3em 4em;
     gap: 1em;
-    /* box-shadow: 0 0px 10px rgba(12, 30, 165, 0.8); */
 }
 
 .container .flex{
@@ -53,10 +52,15 @@ table {
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    background: none!important;
+    background: #2357be!important;
+    color:#FFFFFF;
+    /* background: none!important; */
 }
 
 .restart-btn:hover{
-    background: #2357be!important;
-    color:#FFFFFF;
+    /* background: #2357be!important; */
+    background: #b5c4e2!important;
+    /* border: none!important; */
+    /* color:#FFFFFF; */
+    color: #000!important;
 }

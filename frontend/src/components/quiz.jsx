@@ -3,8 +3,11 @@ import Questions from './Questions'
 import { useSelector, useDispatch } from 'react-redux';
 import { MoveNextQuestion, MovePrevQuestion } from '../custom-hooks/FetchQuestion';
 import { PushAnswer } from '../custom-hooks/setResult';
-import {Navigate} from 'react-router-dom'
+import { useNavigate, Navigate} from 'react-router-dom'
 import '../styles/quiz.css'
+import { attempts_Number, earnPoints_Number, flagResult } from '../helper/helper';
+import axios from "axios";
+import { setSubmittedAction, setSubmittedActionFalse} from '../redux/result_reducer';
 
 
 
@@ -12,35 +15,33 @@ import '../styles/quiz.css'
 
 const Quiz = () => {
 
+
     const [check, setChecked] = useState(undefined)
-    const result = useSelector(state => state.result.result)
-    const state = useSelector(state => state)
-    const { queue, trace } = useSelector(state => state.questions)
     const dispatch = useDispatch()
+    const {questions : {queue, trace, answers}, result : {result, submitted}} = useSelector(state => state) 
 
     function onNext(){
-        console.log("on Next btn");
         if(trace < queue.length){
             dispatch(MoveNextQuestion());
 
             if (result.length <= trace){
                 dispatch(PushAnswer(check))
             }
-        }
 
+        }
+        // trace === queue.length - 1 ?dispatch(setSubmittedAction()) :dispatch(setSubmittedActionFalse())
         setChecked(undefined)
     }
 
-    /** Prev button event handler */
     function onPrev(){
-        console.log("on prev btn");
         if(trace > 0){
+            dispatch(setRestartFalse())
             dispatch(MovePrevQuestion());
         }
     }
 
+
     function onChecked(check){
-        console.log(check)
         setChecked(check)
     }
 
@@ -50,15 +51,23 @@ const Quiz = () => {
 
 
 
+
   return (
     <div className='container quiz-app'>
-        {/* <h1 className='titles'>IT'S TRIVIA TIME</h1> */}
 
         <Questions onChecked = {onChecked}/>
         <div className='grid'>
             {trace > 0 ? <button className='btn prev' onClick={onPrev}>Prev</button> : <div></div> }
-            
-            <button className='btn next' onClick={onNext}>Next</button>
+    
+            {trace === queue.length - 1 ? (
+                    <button className='btn submit submit-btn' onClick={onNext}>
+                        Submit
+                    </button>
+                ) : (
+                    <button className='btn next' onClick={onNext}>
+                        Next
+                    </button>
+                )}
         </div>
     </div>
   )

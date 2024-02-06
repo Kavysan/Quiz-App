@@ -1,9 +1,10 @@
 import Main from "../components/main";
-import { CheckUserExist } from "../helper/helper";
+// import { CheckUserExist } from "../helper/helper";
 import Quiz from "../components/quiz";
 import Result from "../components/result";
 import Login from "../components/login";
 import Register from "../components/Register";
+import Dashboard from "../components/Dashboard";
 
 const routes = [
     {
@@ -35,6 +36,12 @@ const routes = [
       path: "/register",
       component: Register,
       name: "Register",
+      // protected: false,
+    },
+    {
+      path: "/profile",
+      component: Dashboard,
+      name: "Dashboard",
       // protected: false,
     }
   ];

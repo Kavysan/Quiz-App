@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import '../styles/register.css'
+import { useDispatch } from "react-redux";
+import { setSubmittedActionFalse, setSubmittedAction } from "../redux/result_reducer";
 
 export default function Login() {
+
+    const dispatch = useDispatch()
+
 
     const [loginForm, setloginForm] = useState({
         email: "",
@@ -11,11 +16,14 @@ export default function Login() {
       })
 
     const navigate = useNavigate();
+  
+
+
     function btnlogin(event) {
-        console.log("Button clicked!");
         axios({
             method: "POST",
-            url:"http://127.0.0.1:5000/logintoken",
+            // url:"http://127.0.0.1:5000/logintoken",
+            url:"https://quiz-backend-aao5.onrender.com/logintoken",
             data:{
                 email: loginForm.email,
                 password: loginForm.password
@@ -27,9 +35,7 @@ export default function Login() {
                 alert("Successful Login");
                 localStorage.setItem('email', loginForm.email)
                 localStorage.setItem('token', response.data.access_token)
-                
-                // props.setToken(response.data.access_token)
-                
+
                 navigate('/');
             } else {
                 console.error("Unexpected response status:", response.status);
@@ -62,48 +68,8 @@ export default function Login() {
 
 
     return (
-    // <div>
-    //     <div className="container h-50">
-    //       <div className="container-fluid h-custom">
-    //         <div className="row d-flex justify-content-center align-items-center h-50">
-    //           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-    //             <form>
-    //               <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-    //                 <p className="lead fw-normal mb-0 me-3">Log Into Your Account</p>
-    //               </div>
   
-    //               <div className="form-outline mb-4">
-    //                 <input type="email" name="email" value={loginForm.email} onChange={handleChange} text={loginForm.email} id="form3Example3" className="form-control form-control-lg" placeholder="Enter a valid email address" />
-    //                 <label className="form-label" htmlFor="form3Example3">Email address</label>
-    //               </div>
-  
-              
-    //               <div className="form-outline mb-3">
-    //                 <input type="password" name="password" value={loginForm.password} onChange={handleChange} text={loginForm.password} id="form3Example4" className="form-control form-control-lg" placeholder="Enter password" />
-    //                 <label className="form-label" htmlFor="form3Example4">Password</label>
-    //               </div>
-  
-    //               <div className="d-flex justify-content-between align-items-center">
-    //                 <div className="form-check mb-0">
-    //                   <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-    //                   <label className="form-check-label" htmlFor="form2Example3">
-    //                     Remember me
-    //                   </label>
-    //                 </div>
-    //                 <a href="#!" className="text-body">Forgot password?</a>
-    //               </div>
-  
-    //               <div className="text-center text-lg-start mt-4 pt-2">
-    //                 <Link to={'/login'} className="btn btn-primary btn-lg" onClick={btnlogin} >Login</Link>
-    //                 <p className="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <Link to={'/register'} className="link-danger">Register</Link></p>
-    //               </div>
-    //             </form>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    // </div>
-    <div className="container boxx">
+    <div className="container boxx ring">
       <div className="signup-selection">
         <header>Login</header>
         <form>
@@ -121,7 +87,7 @@ export default function Login() {
                 type="password" 
                 name="password" 
                 value={loginForm.password} 
-                onChange={handleChange} 
+                onChange={handleChange}  
                 text={loginForm.password} 
                 id="form3Example4"
                 placeholder="Password" 

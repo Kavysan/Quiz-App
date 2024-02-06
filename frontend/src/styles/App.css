@@ -6,8 +6,7 @@
 body {
   height: 100vh;
   background: #F6F7FB;
-  /* background-position: center center; */
-  margin: 0; /* Remove default margin to ensure full height */
+  margin: 0;
 }
 
 .container .grid{

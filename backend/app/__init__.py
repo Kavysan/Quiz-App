@@ -5,6 +5,7 @@ from config import Config
 from models import db
 from flask_migrate import Migrate
 from .authentication.routes import auth
+from .api.routes import api
 
 
 app = Flask(__name__)
@@ -17,6 +18,7 @@ def hello_world():
     return "<p>Hello, World!</p>"
 
 app.register_blueprint(auth)
+app.register_blueprint(api)
 app.config.from_object(Config)
 migrate = Migrate(app, db)
 db.init_app(app)

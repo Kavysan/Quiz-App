@@ -4,13 +4,11 @@ import { createSlice } from "@reduxjs/toolkit"
 export const resultReducer = createSlice({
     name:'results',
     initialState : {
-        userId: null,
         result : [],
+        submitted: false,
+        update: false,
     },
     reducers : {
-        setUserId : (state, action) => {
-            state.userId = action.payload
-        },
         pushResultAction : (state,action) =>{
             state.result.push(action.payload)
         },
@@ -20,14 +18,32 @@ export const resultReducer = createSlice({
         },
         resetResultAction : () =>{
             return {
-                userId : null,
                 result : []
             }
-        }
+        },
+        
+        setSubmittedAction: (state) => {
+            state.submitted = true;
+            console.log(`submitted: ${state.submitted}`)
+        },
+
+        setSubmittedActionFalse: (state) => {
+            state.submitted = false;
+            console.log(`submitted: ${state.submitted}`)
+        },
+
+        setUpdate: (state) => {
+            state.update = true;
+            console.log(`restart: ${state.update}`)
+        },
+        setUpdateFalse: (state) => {
+            state.restart = false;
+            console.log(`restart: ${state.update}`)
+        },
     }
 })
 
-export const {setUserId, pushResultAction, resetResultAction, updateResultAction} = resultReducer.actions;
+export const { pushResultAction, resetResultAction, updateResultAction, setSubmittedAction, setSubmittedActionFalse, setUpdate, setUpdateFalse} = resultReducer.actions;
   
 export default resultReducer.reducer;
   

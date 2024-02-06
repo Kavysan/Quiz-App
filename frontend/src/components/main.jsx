@@ -1,23 +1,27 @@
-import { Link } from "react-router-dom"
-import { useRef } from "react"
+import { Link, useNavigate } from "react-router-dom"
+
 import '../styles/main.css'
 import { useDispatch } from "react-redux"
-import { setUserId } from "../redux/result_reducer"
 
 
 
 const Main = () => {
-    const inputRef = useRef(null)
-    const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     function startQuiz() {
-        if(inputRef.current?.value) {
-            dispatch(setUserId(inputRef.current?.value))
+
+        if (localStorage.getItem('email') === null) {
+            alert("Login to proceed")
+            navigate('/login')
+        } else {
+
+            navigate('/quiz')
         }
     }
 
   return (
-    <div className='container heading '>
+    <div className='container heading main-bg'>
         <h1 className="title">COMPUTER QUIZ</h1>
 
         <ol className="order-list">
@@ -29,7 +33,7 @@ const Main = () => {
         </ol>
 
         <div className="start">
-            <Link className="btn start-btn" to={'quiz'} onClick={startQuiz}>Start Quiz</Link>
+            <button className="btn start-btn" onClick={startQuiz}>Start Quiz</button>
         </div>
         
     </div>

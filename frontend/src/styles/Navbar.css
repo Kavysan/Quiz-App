@@ -5,13 +5,16 @@
 
 .menu-bar{
     position: relative;
+    /* position: absolute!important; */
     font-family: system-ui;
-    /* border-bottom: 2px solid rgb(228, 223, 223); */
+    border-bottom: 2px solid rgb(228, 223, 223);
     background: #FFFFFF;
     z-index: 100;
+    width: 100%;
+    /* margin-top: -50px; */
 }
 nav{
-    height: 70px;
+    height: auto;
     transition: 0.6s;
 }
 .nav-link{
@@ -25,26 +28,28 @@ nav{
 
 .nav-link:hover {
     font-weight: 600;
-    border-bottom: 1.5px solid black;
+    /* background: #2357be!important; */
+    border-bottom: 2px solid #2357be;
+    color:#2357be!important; 
 }
 
 .navbar-nav{
     text-align: right;
     transition: 0.6s;
     margin-left: auto;
-    padding-right: 10%;
+    padding-right: 5%;
 }
 
 .navbar-toggler {
     margin-right: 5%;
     outline: none!important;
-    border: 1px solid black;
+    border: 0.5px solid #2357be!important;
     transition: 0.6s;
-    color: floralwhite;
+    color: #2357be!important;
 }
 
 i{
-    color: floralwhite!important;
+    color: #2357be!important;
     font-size: 25px;
 }
 

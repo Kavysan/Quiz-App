@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-// import data from '../database/data'
-
 import { useFetchQuestion } from '../custom-hooks/FetchQuestion'
-// import { updateResultAction } from '../redux/result_reducer'
 import { updateResult } from '../custom-hooks/setResult'
 
 export default function Questions( {onChecked} ) {
@@ -11,8 +8,7 @@ export default function Questions( {onChecked} ) {
     const [checked, setChecked] = useState(undefined)
     const { trace } = useSelector(state => state.questions);
     const result = useSelector(state => state.result.result);
-    const [{ isLoading, apiData, serverError}] = useFetchQuestion() 
-    useSelector(state => console.log(state));
+    const [{ isLoading, serverError}] = useFetchQuestion() 
     const questions = useSelector(state => state.questions.queue[state.questions.trace])
     const dispatch = useDispatch()
 
