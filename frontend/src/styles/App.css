@@ -1,11 +1,15 @@
+
+
 *{
   font-family: system-ui;
+  transition: all 0.5s ease-in-out;
 }
 
 
 body {
   height: 100vh;
   background: #F6F7FB;
+  /* background: var(--background); */
   margin: 0;
 }
 

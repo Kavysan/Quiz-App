@@ -6,9 +6,12 @@ import {FaBars} from "react-icons/fa"
 import { useDispatch } from "react-redux";
 import { resetResultAction} from "../redux/result_reducer";
 import {resetAllAction} from '../redux/questions_reducer';
-import DarkMode from "./DarkMode";
+import logo from '../images/quiz_logo.png'
+
 
 function Navbar() {
+
+    
 
     const navigate = useNavigate();
     const dispatch = useDispatch()
@@ -67,7 +70,7 @@ function Navbar() {
       <div className="header">
         <div className="menu-bar">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <Link to='/' className="navbar-brand"><img src="src/images/quiz_logo.png" alt="Logo" style={{ width: '150px'}} /></Link>
+          <Link to='/' className="navbar-brand"><img src={logo} alt="Logo" style={{ width: '150px'}} /></Link>
             <button className="navbar-toggler" type="button" onClick={toggleNavbar}>
               <FaBars />
             </button>
@@ -92,9 +95,6 @@ function Navbar() {
                         :
                         <button className="nav-link btn ml-auto" type="submit" onClick={logMeOut}>Logout</button>
                       }
-                  </li>
-                  <li className="nav-item">
-                      <DarkMode />
                   </li>
                 </ul>
               </div>

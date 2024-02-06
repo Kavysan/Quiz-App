@@ -14,9 +14,8 @@ a{
     box-shadow: 0 0px 10px rgba(12, 30, 165, 0.8);
     overflow: hidden;
     margin-top: 10%;
-    /* background: linear-gradient(to right, #ff7e5f, #feb47b); */
+    /* background: var(--body_background) */
 }
-
 
 .container form{
     display: flex;
@@ -78,3 +77,10 @@ header{
     color: #2357be!important;
 }
 
+@media (max-width: 768px) {
+    .boxx {
+      margin-top: 15%;
+      width: 80%;
+      /* overflow-x: hidden; */
+    }
+  }
